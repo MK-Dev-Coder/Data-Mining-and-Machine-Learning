@@ -1,0 +1,19 @@
+{
+  "snapshot": "2019-05-16",
+  "cutoff": "2019-04-18",
+  "lookback_days": 28,
+  "n_users_modelled": 15544,
+  "n_churned_actual": 7196,
+  "churn_rate_actual": 0.4629439011837365,
+  "n_churn_predicted_model": 7425,
+  "n_churn_predicted_heuristic": 6484,
+  "best_model": "rf",
+  "best_metrics": {
+    "model": "rf",
+    "roc_auc": 0.9010111812511185,
+    "pr_auc": 0.874729947490002,
+    "f1": 0.8114754098360656,
+    "precision": 0.7978509066487576,
+    "recall": 0.8255733148019458
+  }
+}
