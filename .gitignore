@@ -12,8 +12,6 @@ data/
 
 # outputs/ are committed (Streamlit Cloud needs the figures and predictions).
 # To regenerate locally: `python -m src.main`.
-# Skip the heavy intermediate artefacts that Streamlit doesn't need:
-outputs/tables/feature_matrix.csv
 
 # editor / OS
 .vscode/
