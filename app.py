@@ -55,10 +55,23 @@ def load_meta() -> pd.DataFrame:
     return pd.read_csv(p) if p.exists() else pd.DataFrame()
 
 
-@st.cache_data
 def load_features() -> pd.DataFrame:
+    """Loads the feature matrix. Not cached so newly-pushed files are picked up."""
     p = TAB / "feature_matrix.csv"
-    return pd.read_csv(p) if p.exists() else pd.DataFrame()
+    if not p.exists():
+        st.error(f"Feature matrix not found at: `{p}`")
+        try:
+            siblings = sorted(TAB.iterdir())
+            st.write("Files actually present in `outputs/tables/`:")
+            st.write([s.name for s in siblings])
+        except Exception as e:
+            st.write(f"(could not list outputs/tables/: {e})")
+        return pd.DataFrame()
+    try:
+        return pd.read_csv(p)
+    except Exception as e:
+        st.error(f"Failed to read {p}: {e}")
+        return pd.DataFrame()
 
 
 @st.cache_resource
